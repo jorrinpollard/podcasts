@@ -12,8 +12,8 @@ setup(
     author="Jorrin Pollard",
     author_email="hi@jorr.in",
     description="Parse podcasts with Python",
-    url="https://github.com/pypodcasts/podcasts",
-    long_description="README at https://github.com/pypodcasts/podcasts",
+    url="https://github.com/jorrinpollard/podcasts",
+    long_description="README at https://github.com/jorrinpollard/podcasts",
     license="MIT",
     classifiers=[
         "Development Status :: 1 - Planning",
