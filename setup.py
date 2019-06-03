@@ -16,7 +16,7 @@ setup(
     long_description="README at https://github.com/pypodcasts/podcasts",
     license="MIT",
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 1 - Planning",
         "Environment :: Console",
         "Intended Audience :: End Users/Desktop",
         "License :: OSI Approved :: MIT License",
