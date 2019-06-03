@@ -46,20 +46,24 @@ class Podcast:
     @property
     def owner(self):
         channel = self.channel
-        owner = channel.get("owner")
+        channel_owner = channel.get("owner")
 
-        if owner and isinstance(owner, OrderedDict):
-            owner_value = owner.get("$")
+        owner = None
+
+        if channel_owner and isinstance(channel_owner, OrderedDict):
+            owner_value = channel_owner.get("$")
 
             if owner_value and isinstance(owner_value, str):
-                return owner_value
+                owner = owner_value
 
-        if owner.get("name"):
-            return owner.get("name", {}).get("$")
+        if not owner and channel_owner.get("name"):
+            owner = channel_owner.get("name", {}).get("$")
 
-        if owner.get("email"):
-            return owner.get("email", {}).get("$")
+        if not owner and channel_owner.get("email"):
+            owner = channel_owner.get("email", {}).get("$")
 
+        logger.debug("Onwer: " + owner)
+        assert isinstance(owner, str) == True
         return owner
 
     @property
