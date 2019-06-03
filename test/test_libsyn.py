@@ -11,25 +11,27 @@ sys.path.insert(0, cwd)
 
 from podcasts import Podcast
 
-source = os.path.join(cwd, "test", "fixtures", "feedburner.xml")
+source = os.path.join(cwd, "test", "fixtures", "libsyn.xml")
 
-_copyright = "Copyright 2019 Serial Podcast"
-_type = "serial"
-author = "This American Life"
-categories = ["News & Politics"]
-description = "Serial is a podcast from the creators of This American Life, hosted by Sarah Koenig. Serial unfolds one story - a true story - over the course of a whole season. The show follows the plot and characters wherever they lead, through many surprising twists and turns. Sarah won't know what happens at the end of the story until she gets there, not long before you get there with her. Each week she'll bring you the latest chapter, so it's important to listen in, starting with Episode 1. New episodes are released on Thursday mornings."
-explicit = None
-generator = None
-image_url = "https://serialpodcast.org/sites/all/modules/custom/serial/img/serial-itunes-logo.png"
+_copyright = "Copyright © Talking Monkey Productions"
+_type = "episodic"
+author = "Joe Rogan"
+categories = ['Comedy', 'Society & Culture', 'Technology']
+description = "Conduit to the Gaian Mind"
+explicit = "yes"
+generator = "Libsyn WebEngine 2.0"
+image_url = "http://static.libsyn.com/p/assets/7/1/f/3/71f3014e14ef2722/JREiTunesImage2.jpg"
 language = "en"
-last_build_date = "Thu, 15 Nov 2018 10:30:00 +0000"
-managing_editor = None
-new_feed_url = None
+last_build_date = "Fri, 10 May 2019 02:04:10 +0000"
+link = "[OrderedDict([('@href', 'http://joeroganexp.joerogan.libsynpro.com/rss'), ('@rel', 'self'), ('@type', 'application/rss+xml')]), OrderedDict([('$', 'https://www.joerogan.com')])]"
+managing_editor = "joe@joerogan.net (joe@joerogan.net)"
+new_feed_url = "http://joeroganexp.joerogan.libsynpro.com/rss"
+owner = "Joe Rogan"
 owner = None
-pub_date = None
-subtitle = "A podcast from the creators of This American Life"
-summary = None
-title = "Serial"
+pub_date = "Fri, 10 May 2019 02:00:00 +0000"
+subtitle = "Joe Rogan's Weekly Podcast"
+summary = "The podcast of Comedian Joe Rogan.."
+title = "The Joe Rogan Experience"
 web_master = None
 
 class TestFeedburner(unittest.TestCase):

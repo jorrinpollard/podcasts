@@ -33,7 +33,6 @@ class Podcast:
         self.link = channel.get("link")
         self.managing_editor = channel.get("managingEditor", {}).get("$")
         self.new_feed_url = channel.get("new-feed-url", {}).get("$")
-        self.owner = channel.get("owner", {}).get("$")
         self.pub_date = channel.get("pubDate", {}).get("$")
         self.subtitle = channel.get("subtitle", {}).get("$")
         self.summary = channel.get("summary", {}).get("$")
@@ -43,6 +42,21 @@ class Podcast:
 
     def __str__(self):
         return self.source
+
+    @property
+    def owner(self):
+        channel = self.channel
+        owner = channel.get("owner")
+        if not owner:
+            return
+
+        if owner.get("$"):
+            return owner.get("$")
+
+        if owner.get("name"):
+            return owner.get("name").get("$")
+
+        return owner
 
     @property
     def image_url(self):
@@ -116,11 +130,15 @@ class Podcast:
 
                 if category.get("category"):
                     for inner_category in category.get("category"):
-                        if inner_category.get("@text"):
+                        if isinstance(inner_category, str):
+                            categories = categories + [inner_category]
+
+                        if isinstance(inner_category, OrderedDict):
                             categories = categories + [inner_category.get("@text"), inner_category.get("$")]
         
-        categories[:] = [category for category in categories if isinstance(category, str)]
+        categories[:] = [category for category in categories if isinstance(category, str) and category != "@text"]
         categories = list(set(categories))
+        categories.sort()
 
         logger.debug("Categories found: " + str(categories))
 
