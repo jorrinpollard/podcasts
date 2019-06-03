@@ -30,7 +30,6 @@ class Podcast:
         self.explicit = channel.get("explicit", {}).get("$")
         self.generator = channel.get("generator", {}).get("$")
         self.language = channel.get("language", {}).get("$")
-        self.link = channel.get("link")
         self.managing_editor = channel.get("managingEditor", {}).get("$")
         self.new_feed_url = channel.get("new-feed-url", {}).get("$")
         self.pub_date = channel.get("pubDate", {}).get("$")
@@ -42,6 +41,24 @@ class Podcast:
 
     def __str__(self):
         return self.source
+
+    @property
+    def link(self):
+        channel = self.channel
+        channel_links = channel.get("link")
+
+        link = None
+
+        if channel_links and isinstance(channel_links, OrderedDict):
+            channel_links = [channel_links]
+
+        for channel_link in channel_links:
+            if channel_link.get("$"):
+                link = channel_link.get("$")
+                break
+
+        logger.debug("Link: " + link)
+        return link
 
     @property
     def owner(self):
@@ -63,7 +80,6 @@ class Podcast:
             owner = channel_owner.get("email", {}).get("$")
 
         logger.debug("Onwer: " + owner)
-        assert isinstance(owner, str) == True
         return owner
 
     @property

@@ -23,7 +23,7 @@ generator = "ShoutEngine 1.0; http://www.shoutengine.com"
 image_url = "http://media.cdn.shoutengine.com/cache/d6/e9/d6e900686dd88c35c643f0a1747f1912.jpg"
 language = "en"
 last_build_date = "Sat, 11 May 2019 19:21:22"
-link = "[OrderedDict([('$', 'http://shoutengine.com/TheSmokingTire/')]), OrderedDict([('@href', 'http://shoutengine.com/TheSmokingTire.xml'), ('@rel', 'self'), ('@type', 'application/rss+xml')])]"
+link = 'http://shoutengine.com/TheSmokingTire/'
 managing_editor = "Matt Farah & Zack Klapman"
 new_feed_url = None
 owner = "Matt Farah & Zack Klapman"
@@ -49,7 +49,7 @@ class TestShoutengine(unittest.TestCase):
         self.assertEqual(self.podcast.image_url, image_url)
         self.assertEqual(self.podcast.language, language)
         self.assertEqual(self.podcast.last_build_date, last_build_date)
-        self.assertFalse(self.podcast.link == [])
+        self.assertEqual(self.podcast.link, link)
         self.assertEqual(self.podcast.managing_editor, managing_editor)
         self.assertEqual(self.podcast.new_feed_url, new_feed_url)
         self.assertEqual(self.podcast.owner, owner)

@@ -31,6 +31,7 @@ subtitle = "A podcast from the creators of This American Life"
 summary = None
 title = "Serial"
 web_master = None
+link = "https://serialpodcast.org"
 
 class TestFeedburner(unittest.TestCase):
     def setUp(self):
@@ -48,7 +49,7 @@ class TestFeedburner(unittest.TestCase):
         self.assertEqual(self.podcast.image_url, image_url)
         self.assertEqual(self.podcast.language, language)
         self.assertEqual(self.podcast.last_build_date, last_build_date)
-        self.assertFalse(self.podcast.link == [])
+        self.assertEqual(self.podcast.link, link)
         self.assertEqual(self.podcast.managing_editor, managing_editor)
         self.assertEqual(self.podcast.new_feed_url, new_feed_url)
         self.assertEqual(self.podcast.owner, owner)

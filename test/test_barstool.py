@@ -23,7 +23,7 @@ generator = "McSorleys by Barstool Sports"
 image_url = "https://podcasts.barstoolsports.com/_images/call_her_daddy_itunes.e5b5d9abdc67.jpg"
 language = "en-us"
 last_build_date = "Sat, 11 May 2019 20:27:55 GMT"
-link = "[OrderedDict([('$', 'https://www.barstoolsports.com/shows/call-her-daddy')]), OrderedDict([('@href', 'https://mcsorleys.barstoolsports.com/feed/call-her-daddy'), ('@rel', 'self'), ('@type', 'application/rss+xml')])]"
+link = "https://www.barstoolsports.com/shows/call-her-daddy"
 managing_editor = "podcasting@barstoolsports.com (Barstool Podcasting)"
 new_feed_url = "https://mcsorleys.barstoolsports.com/feed/call-her-daddy"
 owner = "Barstool Sports"
@@ -49,7 +49,7 @@ class TestBarstool(unittest.TestCase):
         self.assertEqual(self.podcast.image_url, image_url)
         self.assertEqual(self.podcast.language, language)
         self.assertEqual(self.podcast.last_build_date, last_build_date)
-        self.assertFalse(self.podcast.link == [])
+        self.assertEqual(self.podcast.link, link)
         self.assertEqual(self.podcast.managing_editor, managing_editor)
         self.assertEqual(self.podcast.new_feed_url, new_feed_url)
         self.assertEqual(self.podcast.owner, owner)

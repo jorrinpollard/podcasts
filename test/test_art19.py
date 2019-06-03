@@ -23,7 +23,7 @@ generator = "ART19"
 image_url = "https://content.production.cdn.art19.com/images/61/e2/04/17/61e20417-ab6f-43c6-a8fb-00d8d845d8e5/d7bea48af84622089cf34d61a6b2bd64691ac4bda05793a4ca463ea0afbb60bc8af9457ea259ebe8d79826bf2e48d510d6fc130edd74e0bb5454fc1ee30baf74.jpeg"
 language = "en"
 last_build_date = "Tue, 07 May 2019 04:44:41 -0000"
-link = "[OrderedDict([('@href', 'https://rss.art19.com/believe-you-me'), ('@rel', 'self'), ('@type', 'application/rss+xml')]), OrderedDict([('$', 'http://GaSDigitalNetwork.com/believe')])]"
+link = "http://GaSDigitalNetwork.com/believe"
 managing_editor = "bym@gasdigitalnetwork.com (Michael Bisping, Luis J. Gomez)"
 new_feed_url = "https://rss.art19.com/believe-you-me"
 owner = "Michael Bisping, Luis J. Gomez"
@@ -49,7 +49,7 @@ class TestArt19(unittest.TestCase):
         self.assertEqual(self.podcast.image_url, image_url)
         self.assertEqual(self.podcast.language, language)
         self.assertEqual(self.podcast.last_build_date, last_build_date)
-        self.assertFalse(self.podcast.link == [])
+        self.assertEqual(self.podcast.link, link)
         self.assertEqual(self.podcast.managing_editor, managing_editor)
         self.assertEqual(self.podcast.new_feed_url, new_feed_url)
         self.assertEqual(self.podcast.owner, owner)

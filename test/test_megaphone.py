@@ -19,7 +19,7 @@ description = "If you've ever wanted to know about champagne, satanism, the Ston
 explicit = "no"
 generator = None
 language = "en"
-link = "[OrderedDict([('@href', 'https://feeds.megaphone.fm/stuffyoushouldknow'), ('@rel', 'self'), ('@type', 'application/rss+xml')]), OrderedDict([('$', 'https://www.howstuffworks.com')])]"
+link = "https://www.howstuffworks.com"
 managing_editor = None
 new_feed_url = "https://feeds.megaphone.fm/stuffyoushouldknow"
 pub_date = None
@@ -49,7 +49,7 @@ class TestMegaphone(unittest.TestCase):
         self.assertEqual(self.podcast.image_url, image_url)
         self.assertEqual(self.podcast.language, language)
         self.assertEqual(self.podcast.last_build_date, last_build_date)
-        self.assertFalse(self.podcast.link == [])
+        self.assertEqual(self.podcast.link, link)
         self.assertEqual(self.podcast.managing_editor, managing_editor)
         self.assertEqual(self.podcast.new_feed_url, new_feed_url)
         self.assertEqual(self.podcast.owner, owner)

@@ -23,7 +23,7 @@ generator = "Libsyn WebEngine 2.0"
 image_url = "http://static.libsyn.com/p/assets/7/1/f/3/71f3014e14ef2722/JREiTunesImage2.jpg"
 language = "en"
 last_build_date = "Fri, 10 May 2019 02:04:10 +0000"
-link = "[OrderedDict([('@href', 'http://joeroganexp.joerogan.libsynpro.com/rss'), ('@rel', 'self'), ('@type', 'application/rss+xml')]), OrderedDict([('$', 'https://www.joerogan.com')])]"
+link = "https://www.joerogan.com"
 managing_editor = "joe@joerogan.net (joe@joerogan.net)"
 new_feed_url = "http://joeroganexp.joerogan.libsynpro.com/rss"
 owner = "Joe Rogan"
@@ -49,7 +49,7 @@ class TestLibsyn(unittest.TestCase):
         self.assertEqual(self.podcast.image_url, image_url)
         self.assertEqual(self.podcast.language, language)
         self.assertEqual(self.podcast.last_build_date, last_build_date)
-        self.assertFalse(self.podcast.link == [])
+        self.assertEqual(self.podcast.link, link)
         self.assertEqual(self.podcast.managing_editor, managing_editor)
         self.assertEqual(self.podcast.new_feed_url, new_feed_url)
         self.assertEqual(self.podcast.owner, owner)
