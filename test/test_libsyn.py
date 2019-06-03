@@ -27,14 +27,13 @@ link = "[OrderedDict([('@href', 'http://joeroganexp.joerogan.libsynpro.com/rss')
 managing_editor = "joe@joerogan.net (joe@joerogan.net)"
 new_feed_url = "http://joeroganexp.joerogan.libsynpro.com/rss"
 owner = "Joe Rogan"
-owner = None
 pub_date = "Fri, 10 May 2019 02:00:00 +0000"
 subtitle = "Joe Rogan's Weekly Podcast"
 summary = "The podcast of Comedian Joe Rogan.."
 title = "The Joe Rogan Experience"
 web_master = None
 
-class TestFeedburner(unittest.TestCase):
+class TestLibsyn(unittest.TestCase):
     def setUp(self):
         self.podcast = Podcast(source)
 
