@@ -1,0 +1,12 @@
+language: python
+python:
+- '3.6'
+script:
+- make
+deploy:
+  provider: pypi
+  user: jorrinpollard
+  password:
+    secure: PSZsr2cq2/CCJseSM3t6tAo7zPb/EVfXkRZ1h+wu9+iEpBpAkF6b8CL2uPbZoQAzr4kDcEDffp6cn+eCSynYtsyJjDF5HsTCRw/yXcby+kTCwc7K0K9/icInfv3SdrPSOFS2vFNQlXI/+8ax0/XANZMUKkBVnsrUBhtXmdio5rtu5xtxzOnpmqiYrIuJmHvrgC0/sEhvRrD324T5wTShDnVLwJVJAqE7ZoFoaJzPVsIEctCQUIFPPztA7DkNTxKA5CysnwwQO1GdknMBWtVjI0HDhdxme491ZUfZ/FmQMBKUyysyo3AF2zldOy1DMCp8lelUXwY5Z4ipryo26QwKj81aO9NRw0NyRqmFJC9kY+gg5bG6PAH75wapdzu70d5B2wHtMUJb6BQ5uzgRIRB4VLot2T1T78BNwmcOCFZl/zGdgV6KfigqfuJ6DmPpZ/HEyaPPbO+b6OjN+bh5gxFIfpIlaloCSzRsFwGgcIYzpCZx9EedB33QhImnZnNI+vvZJv9p/I6W+0WZzUqivXiBlM3UaXKe9Hx9AMMq5+0fepz8Bm6k11UbbiquHjcgAJELgGpwRbp32/a6w3jLC8NL1w9wLj170iF4+CKPWn4T6WIzSutR7vyFhUT5XCDUMJBWlAHqkqZTESR+zaNZSel67cFsaNSTXAVoCemr/MJDXpg=
+  on:
+    branch: master
