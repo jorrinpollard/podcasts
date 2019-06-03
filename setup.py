@@ -26,5 +26,5 @@ setup(
         "Topic :: Multimedia :: Sound/Audio",
     ],
     keywords=["podcasts"],
-    install_requires=[],
+    install_requires=["xmljson"],
 )

@@ -14,7 +14,7 @@ from podcasts import Podcast
 _copyright = "Copyright 2019 Serial Podcast"
 _type = "serial"
 author = "This American Life"
-categories = []
+categories = ["News & Politics"]
 description = "Serial is a podcast from the creators of This American Life, hosted by Sarah Koenig. Serial unfolds one story - a true story - over the course of a whole season. The show follows the plot and characters wherever they lead, through many surprising twists and turns. Sarah won't know what happens at the end of the story until she gets there, not long before you get there with her. Each week she'll bring you the latest chapter, so it's important to listen in, starting with Episode 1. New episodes are released on Thursday mornings."
 explicit = None
 generator = None
