@@ -33,7 +33,7 @@ summary = "Follow along vlogger Alexandra Cooper and best friend Sofia Franklyn 
 title = "Call Her Daddy"
 web_master = "engineering@barstoolsports.com (Barstool Engineering)"
 
-class TestLibsyn(unittest.TestCase):
+class TestBarstool(unittest.TestCase):
     def setUp(self):
         self.podcast = Podcast(source)
 
