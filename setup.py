@@ -7,7 +7,7 @@ import podcasts
 
 setup(
     name="podcasts",
-    version="0.0.1",
+    version="0.0.2",
     packages=find_packages(),
     author="Jorrin Pollard",
     author_email="hi@jorr.in",
