@@ -6,6 +6,7 @@ import os
 import xml.etree.ElementTree as ET
 
 from podcasts.log import logger
+from podcasts.lib import get_clean_podcast_attr
 
 class Podcast:
     def __init__(self, source):
@@ -24,20 +25,20 @@ class Podcast:
 
         self.source = source
         self.channel = channel
-        self.author = channel.get("author", {}).get("$")
-        self.copyright = channel.get("copyright", {}).get("$")
-        self.description = channel.get("description", {}).get("$")
-        self.explicit = channel.get("explicit", {}).get("$")
-        self.generator = channel.get("generator", {}).get("$")
-        self.language = channel.get("language", {}).get("$")
-        self.managing_editor = channel.get("managingEditor", {}).get("$")
-        self.new_feed_url = channel.get("new-feed-url", {}).get("$")
-        self.pub_date = channel.get("pubDate", {}).get("$")
-        self.subtitle = channel.get("subtitle", {}).get("$")
-        self.summary = channel.get("summary", {}).get("$")
-        self.title = channel.get("title", {}).get("$")
-        self.type = channel.get("type", {}).get("$")
-        self.web_master = channel.get("webMaster", {}).get("$")
+        self.author =  get_clean_podcast_attr(channel.get("author", {}).get("$"))
+        self.copyright =  get_clean_podcast_attr(channel.get("copyright", {}).get("$"))
+        self.description =  get_clean_podcast_attr(channel.get("description", {}).get("$"))
+        self.explicit =  get_clean_podcast_attr(channel.get("explicit", {}).get("$"))
+        self.generator =  get_clean_podcast_attr(channel.get("generator", {}).get("$"))
+        self.language =  get_clean_podcast_attr(channel.get("language", {}).get("$"))
+        self.managing_editor =  get_clean_podcast_attr(channel.get("managingEditor", {}).get("$"))
+        self.new_feed_url =  get_clean_podcast_attr(channel.get("new-feed-url", {}).get("$"))
+        self.pub_date =  get_clean_podcast_attr(channel.get("pubDate", {}).get("$"))
+        self.subtitle =  get_clean_podcast_attr(channel.get("subtitle", {}).get("$"))
+        self.summary =  get_clean_podcast_attr(channel.get("summary", {}).get("$"))
+        self.title =  get_clean_podcast_attr(channel.get("title", {}).get("$"))
+        self.type =  get_clean_podcast_attr(channel.get("type", {}).get("$"))
+        self.web_master =  get_clean_podcast_attr(channel.get("webMaster", {}).get("$"))
 
     def __str__(self):
         return self.source
@@ -57,6 +58,7 @@ class Podcast:
                 link = channel_link.get("$")
                 break
 
+        link = get_clean_podcast_attr(link)
         logger.debug("Link: " + link)
         return link
 
@@ -78,6 +80,8 @@ class Podcast:
 
         if not owner and channel_owner.get("email"):
             owner = channel_owner.get("email", {}).get("$")
+
+        owner = get_clean_podcast_attr(owner)
 
         logger.debug("Onwer: " + owner)
         return owner
@@ -110,6 +114,7 @@ class Podcast:
             if not image_url and channel_image.get("@href"):
                 image_url = channel_image.get("@href")
 
+        image_url = get_clean_podcast_attr(image_url)
         logger.debug("Image URL: " + image_url)
         return image_url
 
@@ -122,14 +127,17 @@ class Podcast:
 
         if channel.get("lastBuildDate"):
             logger.debug("Using feed's lastBuildDate")
-            last_build_date = channel.get("lastBuildDate", {}).get("$")
+            last_build_date = get_clean_podcast_attr(channel.get("lastBuildDate", {}).get("$"))
+
+            
 
         items = channel.get("item")
         latest_item = items[0]
         if not last_build_date and latest_item and latest_item.get("pubDate"):
             logger.debug("Using latest episode's pubDate")
-            last_build_date =  latest_item.get("pubDate", {}).get("$")
+            last_build_date =  get_clean_podcast_attr(latest_item.get("pubDate", {}).get("$"))
 
+        last_build_date = get_clean_podcast_attr(last_build_date)
         logger.debug("Last build date: " + last_build_date)
         return last_build_date
 
@@ -168,6 +176,7 @@ class Podcast:
         
         categories[:] = [category for category in categories if isinstance(category, str) and category != "@text"]
         categories = list(set(categories))
+        categories = list(map(get_clean_podcast_attr, categories))
         categories.sort()
 
         logger.debug("Categories found: " + str(categories))
